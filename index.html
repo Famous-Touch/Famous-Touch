@@ -161,24 +161,25 @@
             flex-direction: column;
         }
         .slide-wrap.active { opacity: 1; position: relative; }
-        .slide-wrap img {
+        .slide-wrap img:not(.slide-logo) {
             width: 100%;
             height: 300px;
             object-fit: cover;
         }
 
-        /* WATERMARK LOGO STYLE */
+        /* FIXED SMALL WATERMARK LOGO */
         .slide-logo {
             position: absolute;
             top: 15px;
             left: 15px;
-            width: 50px; /* Small but visible */
-            height: auto;
+            width: 50px;       /* Forced small width */
+            height: 50px;      /* Forced small height */
+            object-fit: contain; /* Keeps logo from stretching */
             z-index: 5;
-            border-radius: 6px;
+            border-radius: 8px;
             border: 1px solid var(--primary);
-            background: rgba(0,0,0,0.4);
-            padding: 2px;
+            background: rgba(0,0,0,0.6);
+            padding: 4px;
         }
 
         .caption {
