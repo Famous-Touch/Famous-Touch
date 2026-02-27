@@ -137,6 +137,24 @@
         .service-item { display: flex; align-items: center; gap: 8px; font-size: 15px; }
         .check { color: #000; font-weight: 900; font-size: 18px; }
 
+        .custom-list ul {
+            text-align: left;
+            padding-left: 0;
+            list-style: none;
+            color: #000;
+            margin: 0;
+        }
+        .custom-list li { 
+            display: flex; 
+            gap: 12px; 
+            margin-bottom: 18px; 
+            align-items: flex-start; 
+        }
+        .promise-content { display: flex; flex-direction: column; }
+        .promise-title { font-weight: 800; font-size: 16px; margin-bottom: 2px; color: #000; }
+        .promise-sub { font-weight: 500; font-size: 14px; opacity: 0.9; line-height: 1.3; color: #222; }
+        .custom-list svg { flex-shrink: 0; margin-top: 3px; }
+
         /* SLIDESHOW STYLES */
         .gallery-wrapper {
             margin-bottom: 30px;
@@ -167,6 +185,7 @@
             object-fit: cover;
         }
 
+        /* THE MISSING OVERLAY LOGO STYLE */
         .slide-logo {
             position: absolute;
             top: 15px;
@@ -247,7 +266,7 @@
         .stars { color: #ff9900; font-size: 16px; margin-bottom: 5px; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* FOOTER & MAP LOGO STYLING */
+        /* FOOTER & MAP LOGO */
         .main-footer {
             margin-top: 10px;
             padding: 20px 10px;
@@ -266,17 +285,15 @@
             transition: transform 0.3s ease;
         }
         .map-logo-link:hover { transform: scale(1.1); }
-        
         .map-logo-img {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             background: #fff;
             padding: 8px;
-            border-radius: 15px;
+            border-radius: 12px;
             border: 2px solid var(--primary);
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
-
         .map-label {
             display: block;
             color: var(--primary);
@@ -335,26 +352,79 @@
         </div>
     </section>
 
+    <section class="section custom-list">
+        <h2>Our Promise</h2>
+        <ul>
+            <li>
+                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <div class="promise-content">
+                    <span class="promise-title">Professional & Certified Therapists</span>
+                    <span class="promise-sub">Respectful, trained, and focused on your comfort and safety.</span>
+                </div>
+            </li>
+            <li>
+                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <div class="promise-content">
+                    <span class="promise-title">Truly 24/7 Availability</span>
+                    <span class="promise-sub">Late-night stress relief? Early morning recovery? We come to you anytime.</span>
+                </div>
+            </li>
+            <li>
+                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <div class="promise-content">
+                    <span class="promise-title">Wide Range of Expert Techniques</span>
+                    <span class="promise-sub">Swedish, Deep Tissue, Thai, Combination, Foot, Twin & more.</span>
+                </div>
+            </li>
+            <li>
+                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <div class="promise-content">
+                    <span class="promise-title">Fast Relief from Pain & Tension</span>
+                    <span class="promise-sub">Say goodbye to back/neck pain, jet lag, or daily stress.</span>
+                </div>
+            </li>
+            <li>
+                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <div class="promise-content">
+                    <span class="promise-title">Private & Professional Service</span>
+                    <span class="promise-sub">No crowded spas, no awkward waiting — total privacy in your room.</span>
+                </div>
+            </li>
+            <li>
+                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <div class="promise-content">
+                    <span class="promise-title">Perfect for Solo or Shared Sessions</span>
+                    <span class="promise-sub">Enjoy alone or book Twin Massage for double the relaxation.</span>
+                </div>
+            </li>
+        </ul>
+    </section>
+
     <div class="gallery-wrapper">
         <h2 class="gallery-title">Service Gallery</h2>
         <div class="service-slideshow">
             <div class="slide-wrap active">
-                <img src="famous-touch-logo.png" class="slide-logo" alt="Logo">
+                <img src="famous-touch-logo.png" class="slide-logo" alt="Logo Overlay">
                 <img src="swedish-massage.jpg" alt="Swedish Massage">
                 <div class="caption">Swedish Massage</div>
             </div>
             <div class="slide-wrap">
-                <img src="famous-touch-logo.png" class="slide-logo" alt="Logo">
+                <img src="famous-touch-logo.png" class="slide-logo" alt="Logo Overlay">
                 <img src="deep-tissue.jpg" alt="Deep Tissue">
                 <div class="caption">Deep Tissue</div>
             </div>
             <div class="slide-wrap">
-                <img src="famous-touch-logo.png" class="slide-logo" alt="Logo">
+                <img src="famous-touch-logo.png" class="slide-logo" alt="Logo Overlay">
                 <img src="foot-massage.jpg" alt="Foot Massage">
                 <div class="caption">Foot Massage</div>
             </div>
+            <div class="slide-wrap">
+                <img src="famous-touch-logo.png" class="slide-logo" alt="Logo Overlay">
+                <img src="combination.jpg" alt="Combination Massage">
+                <div class="caption">Combination Massage</div>
+            </div>
             <div class="slide-dots">
-                <span class="active"></span><span></span><span></span>
+                <span class="active"></span><span></span><span></span><span></span>
             </div>
         </div>
     </div>
@@ -382,9 +452,9 @@
             Pasay • Makati • BGC • Malate • Pasig • Parañaque
         </p>
 
-        <a href="https://www.google.com/maps/search/Metro+Manila" target="_blank" class="map-logo-link">
+        <a href="https://maps.google.com" target="_blank" class="map-logo-link">
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Google_Maps_icon_%282020%29.svg" class="map-logo-img" alt="Google Maps">
-            <span class="map-label">View Area Map</span>
+            <span class="map-label">Click to View Map</span>
         </a>
 
         <p style="margin-top: 15px;">Available 24 Hours / 7 Days a Week</p>
