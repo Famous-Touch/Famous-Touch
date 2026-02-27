@@ -28,7 +28,6 @@
             background-repeat: no-repeat;
         }
 
-        /* Darkening overlay to help white text pop */
         body::before {
             content: "";
             position: fixed;
@@ -66,14 +65,13 @@
         .hero p { font-size: 17px; margin-bottom: 5px; color: #ffffff; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); }
         .areas { font-size: 14px; margin: 10px 0; color: var(--primary); font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.9); text-transform: uppercase; }
 
-        /* ULTRA-TRANSPARENT GLASS CARDS WITH GOLD BORDER */
         .section, .call-now-section {
-            background: rgba(255, 255, 255, 0.45); /* High transparency */
-            backdrop-filter: blur(12px);          /* Strong frosted effect */
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-radius: 20px;
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            border: 2px solid var(--primary);    /* Solid Gold Border */
+            border: 2px solid var(--primary);
             padding: 22px;
             margin-bottom: 25px;
         }
@@ -134,6 +132,59 @@
         .service-item { display: flex; align-items: center; gap: 8px; font-size: 15px; }
         .check { color: #000; font-weight: 900; font-size: 18px; }
 
+        /* SLIDESHOW & CAPTIONS */
+        .service-slideshow {
+            position: relative;
+            margin: 16px 0;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(0,0,0,0.2);
+            min-height: 300px;
+            border: 1px solid var(--primary);
+        }
+        .slide-wrap {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            flex-direction: column;
+        }
+        .slide-wrap.active { opacity: 1; position: relative; }
+        .slide-wrap img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .caption {
+            position: absolute;
+            bottom: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--primary);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid var(--primary);
+            white-space: nowrap;
+        }
+
+        .slide-dots {
+            position: absolute;
+            bottom: 12px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            z-index: 10;
+        }
+        .slide-dots span { width: 10px; height: 10px; background: rgba(255, 255, 255, .4); border-radius: 50%; border: 1px solid #000; }
+        .slide-dots span.active { background: var(--primary); transform: scale(1.2); }
+
         .custom-list ul {
             text-align: left;
             padding-left: 0;
@@ -145,45 +196,8 @@
         .custom-list li { display: flex; gap: 12px; margin-bottom: 15px; align-items: flex-start; font-weight: 600; }
         .custom-list svg { flex-shrink: 0; margin-top: 2px; filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.2)); }
 
-        /* SLIDESHOW */
-        .service-slideshow {
-            position: relative;
-            margin: 16px 0;
-            border-radius: 16px;
-            overflow: hidden;
-            background: rgba(0,0,0,0.2);
-            min-height: 250px;
-            border: 1px solid var(--primary);
-        }
-        .service-slideshow img {
-            width: 100%;
-            max-height: 420px;
-            object-fit: contain;
-            position: absolute;
-            inset: 0;
-            margin: auto;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-        .service-slideshow img.active { opacity: 1; position: relative; }
-        .slide-dots {
-            position: absolute;
-            bottom: 12px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 6px;
-        }
-        .slide-dots span { width: 10px; height: 10px; background: rgba(255, 255, 255, .4); border-radius: 50%; border: 1px solid #000; }
-        .slide-dots span.active { background: var(--primary); transform: scale(1.2); }
-
-        /* TESTIMONIALS */
         .testimonial-marquee { overflow: hidden; width: 100%; padding: 12px 0; }
-        .testimonial-track { 
-            display: flex; 
-            gap: 15px; 
-            animation: scroll 15s linear infinite; 
-        }
+        .testimonial-track { display: flex; gap: 15px; animation: scroll 15s linear infinite; }
         .testimonial {
             background: rgba(255,255,255,0.85);
             padding: 16px;
@@ -201,7 +215,6 @@
 
         .floating-btns { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
         .floating-btns a { width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow:0 6px 15px rgba(0,0,0,.4); transition: transform 0.3s; }
-        .floating-btns a:active { transform: scale(0.9); }
         .whatsapp { background: #25D366 }
         .viber { background: #665CAC }
         .floating-btns img { width: 35px }
@@ -252,10 +265,23 @@
     <section class="section">
         <h2>Service Gallery</h2>
         <div class="service-slideshow">
-            <img src="Facebook_creation_A47D6812-8895-471B-A452-AAE2D56A48C2.jpeg" class="active">
-            <img src="Facebook_creation_3D7D17EB-4667-46E4-9B40-4F2D8C8515E1.jpeg">
-            <img src="Facebook_creation_688A372F-103C-4E24-87D5-E3AF8F39032C.jpeg">
-            <img src="Facebook_creation_36A3DE2D-C2BA-4DD4-9819-FCF32ED06849.jpeg">
+            <div class="slide-wrap active">
+                <img src="swedish-massage.jpg">
+                <div class="caption">Swedish Massage</div>
+            </div>
+            <div class="slide-wrap">
+                <img src="deep-tissue.jpg">
+                <div class="caption">Deep Tissue</div>
+            </div>
+            <div class="slide-wrap">
+                <img src="foot-massage.jpg">
+                <div class="caption">Foot Massage</div>
+            </div>
+            <div class="slide-wrap">
+                <img src="combination.jpg">
+                <div class="caption">Combination Massage</div>
+            </div>
+            
             <div class="slide-dots">
                 <span class="active"></span><span></span><span></span><span></span>
             </div>
@@ -288,6 +314,8 @@
                 <div class="testimonial"><div class="stars">★★★★★</div><strong>Mark T.</strong><br>Highly reliable home service in Makati.</div>
                 <div class="testimonial"><div class="stars">★★★★★</div><strong>Sophia R.</strong><br>Very clean setup and polite staff.</div>
                 <div class="testimonial"><div class="stars">★★★★★</div><strong>James L.</strong><br>Perfect hotel service arrival.</div>
+                <div class="testimonial"><div class="stars">★★★★★</div><strong>Anna M.</strong><br>Famous Touch is the best! Very professional.</div>
+                <div class="testimonial"><div class="stars">★★★★★</div><strong>Mark T.</strong><br>Highly reliable home service in Makati.</div>
             </div>
         </div>
     </section>
@@ -300,16 +328,20 @@
 </div>
 
 <script>
-    const slides = document.querySelectorAll('.service-slideshow img');
+    const wraps = document.querySelectorAll('.slide-wrap');
     const dots = document.querySelectorAll('.slide-dots span');
     let currentIndex = 0;
-    setInterval(() => {
-        slides[currentIndex].classList.remove('active');
+
+    function nextSlide() {
+        wraps[currentIndex].classList.remove('active');
         dots[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + 1) % slides.length;
-        slides[currentIndex].classList.add('active');
+        currentIndex = (currentIndex + 1) % wraps.length;
+        wraps[currentIndex].classList.add('active');
         dots[currentIndex].classList.add('active');
-    }, 3000);
+    }
+
+    // Rotates every 4 seconds
+    setInterval(nextSlide, 4000);
 </script>
 
 </body>
