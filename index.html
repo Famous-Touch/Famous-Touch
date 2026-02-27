@@ -7,9 +7,9 @@
     
     <style>
         :root {
-            --primary: #D4AF37; /* Luxury Gold */
-            --dark: #1a1a1a;    /* Deep Black */
-            --accent: #b8860b;  /* Darker Gold */
+            --primary: #D4AF37;
+            --dark: #1a1a1a;
+            --accent: #b8860b;
         }
         
         *{box-sizing:border-box}
@@ -167,14 +167,13 @@
             object-fit: cover;
         }
 
-        /* FIXED SMALL WATERMARK LOGO */
         .slide-logo {
             position: absolute;
             top: 15px;
             left: 15px;
-            width: 50px;       /* Forced small width */
-            height: 50px;      /* Forced small height */
-            object-fit: contain; /* Keeps logo from stretching */
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
             z-index: 5;
             border-radius: 8px;
             border: 1px solid var(--primary);
@@ -210,24 +209,6 @@
         }
         .slide-dots span { width: 10px; height: 10px; background: rgba(255, 255, 255, .4); border-radius: 50%; border: 1px solid #000; }
         .slide-dots span.active { background: var(--primary); transform: scale(1.2); }
-
-        .custom-list ul {
-            text-align: left;
-            padding-left: 0;
-            list-style: none;
-            color: #000;
-            margin: 0;
-        }
-        .custom-list li { 
-            display: flex; 
-            gap: 12px; 
-            margin-bottom: 18px; 
-            align-items: flex-start; 
-        }
-        .promise-content { display: flex; flex-direction: column; }
-        .promise-title { font-weight: 800; font-size: 16px; margin-bottom: 2px; color: #000; }
-        .promise-sub { font-weight: 500; font-size: 14px; opacity: 0.9; line-height: 1.3; color: #222; }
-        .custom-list svg { flex-shrink: 0; margin-top: 3px; }
 
         .testimonial-outer {
             width: 100vw;
@@ -266,6 +247,7 @@
         .stars { color: #ff9900; font-size: 16px; margin-bottom: 5px; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
+        /* FOOTER & MAP LOGO STYLING */
         .main-footer {
             margin-top: 10px;
             padding: 20px 10px;
@@ -277,14 +259,31 @@
             background: linear-gradient(90deg, transparent, var(--primary), transparent);
             margin-bottom: 15px;
         }
-        .service-area-footer {
-            margin: 10px 0;
+        .map-logo-link {
+            display: inline-block;
+            margin: 15px 0;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        .map-logo-link:hover { transform: scale(1.1); }
+        
+        .map-logo-img {
+            width: 60px;
+            height: 60px;
+            background: #fff;
+            padding: 8px;
+            border-radius: 15px;
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .map-label {
+            display: block;
             color: var(--primary);
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
+            font-weight: 800;
+            font-size: 11px;
+            margin-top: 5px;
+            text-transform: uppercase;
         }
 
         .floating-btns { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
@@ -336,54 +335,6 @@
         </div>
     </section>
 
-    <section class="section custom-list">
-        <h2>Our Promise</h2>
-        <ul>
-            <li>
-                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <div class="promise-content">
-                    <span class="promise-title">Professional & Certified Therapists</span>
-                    <span class="promise-sub">Respectful, trained, and focused on your comfort and safety.</span>
-                </div>
-            </li>
-            <li>
-                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <div class="promise-content">
-                    <span class="promise-title">Truly 24/7 Availability</span>
-                    <span class="promise-sub">Late-night stress relief? Early morning recovery? We come to you anytime.</span>
-                </div>
-            </li>
-            <li>
-                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <div class="promise-content">
-                    <span class="promise-title">Wide Range of Expert Techniques</span>
-                    <span class="promise-sub">Swedish, Deep Tissue, Thai, Combination, Foot, Twin & more.</span>
-                </div>
-            </li>
-            <li>
-                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <div class="promise-content">
-                    <span class="promise-title">Fast Relief from Pain & Tension</span>
-                    <span class="promise-sub">Say goodbye to back/neck pain, jet lag, or daily stress.</span>
-                </div>
-            </li>
-            <li>
-                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <div class="promise-content">
-                    <span class="promise-title">Private & Professional Service</span>
-                    <span class="promise-sub">No crowded spas, no awkward waiting — total privacy in your room.</span>
-                </div>
-            </li>
-            <li>
-                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <div class="promise-content">
-                    <span class="promise-title">Perfect for Solo or Shared Sessions</span>
-                    <span class="promise-sub">Enjoy alone or book Twin Massage for double the relaxation.</span>
-                </div>
-            </li>
-        </ul>
-    </section>
-
     <div class="gallery-wrapper">
         <h2 class="gallery-title">Service Gallery</h2>
         <div class="service-slideshow">
@@ -402,13 +353,8 @@
                 <img src="foot-massage.jpg" alt="Foot Massage">
                 <div class="caption">Foot Massage</div>
             </div>
-            <div class="slide-wrap">
-                <img src="famous-touch-logo.png" class="slide-logo" alt="Logo">
-                <img src="combination.jpg" alt="Combination Massage">
-                <div class="caption">Combination Massage</div>
-            </div>
             <div class="slide-dots">
-                <span class="active"></span><span></span><span></span><span></span>
+                <span class="active"></span><span></span><span></span>
             </div>
         </div>
     </div>
@@ -423,8 +369,6 @@
                 <div class="testimonial"><div class="stars">★★★★★</div><strong>James L.</strong><br>Perfect hotel service arrival.</div>
                 <div class="testimonial"><div class="stars">★★★★★</div><strong>Anna M.</strong><br>Famous Touch is the best! Very professional.</div>
                 <div class="testimonial"><div class="stars">★★★★★</div><strong>Mark T.</strong><br>Highly reliable home service in Makati.</div>
-                <div class="testimonial"><div class="stars">★★★★★</div><strong>Sophia R.</strong><br>Very clean setup and polite staff.</div>
-                <div class="testimonial"><div class="stars">★★★★★</div><strong>James L.</strong><br>Perfect hotel service arrival.</div>
             </div>
         </div>
     </div>
@@ -432,12 +376,18 @@
     <footer class="main-footer">
         <div class="footer-line"></div>
         <p><strong>FAMOUS TOUCH MASSAGE SERVICES</strong></p>
-        <div class="service-area-footer">
-            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            SERVICE AREA: METRO MANILA
-        </div>
-        <p style="opacity: 0.8; margin-top: 5px;">Pasay • Makati • BGC • Malate • Pasig • Parañaque</p>
-        <p style="margin-top: 10px;">Available 24 Hours / 7 Days a Week</p>
+        
+        <p style="color: var(--primary); font-weight: bold; margin: 10px 0 5px;">SERVICE AREA COVERAGE:</p>
+        <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 5px;">
+            Pasay • Makati • BGC • Malate • Pasig • Parañaque
+        </p>
+
+        <a href="https://www.google.com/maps/search/Metro+Manila" target="_blank" class="map-logo-link">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Google_Maps_icon_%282020%29.svg" class="map-logo-img" alt="Google Maps">
+            <span class="map-label">View Area Map</span>
+        </a>
+
+        <p style="margin-top: 15px;">Available 24 Hours / 7 Days a Week</p>
         <div style="opacity: 0.5; font-size: 11px; margin-top: 15px; letter-spacing: 1px;">
             © 2026 FAMOUS TOUCH. ALL RIGHTS RESERVED.
         </div>
