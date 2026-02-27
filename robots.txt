@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://serendipity-massage.github.io/Serendipity-Massage/sitemap.xml
