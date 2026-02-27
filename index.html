@@ -25,6 +25,7 @@
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
+            overflow-x: hidden;
         }
 
         body::before {
@@ -38,7 +39,7 @@
         .container {
             width: 100%;
             max-width: 480px; 
-            padding: 20px 20px 80px; /* Added bottom padding for footer spacing */
+            padding: 20px 20px 80px; 
             text-align: center;
             position: relative;
         }
@@ -64,7 +65,6 @@
         .hero p { font-size: 17px; margin-bottom: 5px; color: #ffffff; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); }
         .areas { font-size: 14px; margin: 10px 0; color: var(--primary); font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.9); text-transform: uppercase; }
 
-        /* SEMI-TRANSPARENT GLASS STYLE PRESERVED */
         .section, .call-now-section {
             background: rgba(255, 255, 255, 0.45);
             backdrop-filter: blur(12px);
@@ -109,7 +109,7 @@
             100% { transform: scale(1); }
         }
 
-        .section h2 { 
+        .section h2, .gallery-title { 
             color: #000; 
             font-size: 22px; 
             margin-top: 0; 
@@ -118,6 +118,12 @@
             display: inline-block; 
             padding-bottom: 3px;
             font-weight: 800;
+        }
+        
+        /* Updated Gallery Title for visibility on background */
+        .gallery-title {
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
         .services-grid {
@@ -132,14 +138,20 @@
         .service-item { display: flex; align-items: center; gap: 8px; font-size: 15px; }
         .check { color: #000; font-weight: 900; font-size: 18px; }
 
+        /* SLIDESHOW (NO CARD) */
+        .gallery-wrapper {
+            margin-bottom: 30px;
+            padding: 0;
+        }
         .service-slideshow {
             position: relative;
-            margin: 16px 0;
-            border-radius: 16px;
+            margin: 10px 0;
+            border-radius: 20px;
             overflow: hidden;
-            background: rgba(0,0,0,0.2);
+            background: rgba(0,0,0,0.3);
             min-height: 300px;
-            border: 1px solid var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         .slide-wrap {
             position: absolute;
@@ -171,7 +183,6 @@
             border: 1px solid var(--primary);
             white-space: nowrap;
         }
-
         .slide-dots {
             position: absolute;
             bottom: 12px;
@@ -184,7 +195,6 @@
         .slide-dots span { width: 10px; height: 10px; background: rgba(255, 255, 255, .4); border-radius: 50%; border: 1px solid #000; }
         .slide-dots span.active { background: var(--primary); transform: scale(1.2); }
 
-        /* UPDATED PROMISE LIST STYLES */
         .custom-list ul {
             text-align: left;
             padding-left: 0;
@@ -199,28 +209,47 @@
             align-items: flex-start; 
         }
         .promise-content { display: flex; flex-direction: column; }
-        .promise-title { font-weight: 800; font-size: 16px; margin-bottom: 2px; }
-        .promise-sub { font-weight: 500; font-size: 14px; opacity: 0.9; line-height: 1.3; }
+        .promise-title { font-weight: 800; font-size: 16px; margin-bottom: 2px; color: #000; }
+        .promise-sub { font-weight: 500; font-size: 14px; opacity: 0.9; line-height: 1.3; color: #222; }
         .custom-list svg { flex-shrink: 0; margin-top: 3px; }
 
-        .testimonial-marquee { overflow: hidden; width: 100%; padding: 12px 0; }
-        .testimonial-track { display: flex; gap: 15px; animation: scroll 15s linear infinite; }
+        .testimonial-outer {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        .testimonial-outer h2 { 
+            color: #fff; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--primary);
+            display: inline-block;
+            padding-bottom: 3px;
+            font-weight: 800;
+            font-size: 22px;
+        }
+        .testimonial-marquee { width: 100%; padding: 10px 0; }
+        .testimonial-track { display: flex; gap: 15px; animation: scroll 20s linear infinite; width: max-content; }
         .testimonial {
-            background: rgba(255,255,255,0.85);
+            background: rgba(255,255,255,0.9);
             padding: 16px;
             border-radius: 15px;
-            min-width: 260px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            width: 280px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             font-size: 14px;
             text-align: left;
             border-left: 6px solid var(--primary);
             color: #111;
             font-weight: 600;
         }
-        .stars { color: #ff9900; font-size: 16px; }
+        .stars { color: #ff9900; font-size: 16px; margin-bottom: 5px; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* FOOTER STYLES */
         .main-footer {
             margin-top: 10px;
             padding: 20px 10px;
@@ -295,42 +324,42 @@
         <h2>Our Promise</h2>
         <ul>
             <li>
-                <svg width="20" height="20" fill="#e91e63" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                 <div class="promise-content">
                     <span class="promise-title">Professional & Certified Therapists</span>
                     <span class="promise-sub">Respectful, trained, and focused on your comfort and safety.</span>
                 </div>
             </li>
             <li>
-                <svg width="20" height="20" fill="#e91e63" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                 <div class="promise-content">
                     <span class="promise-title">Truly 24/7 Availability</span>
                     <span class="promise-sub">Late-night stress relief? Early morning recovery? We come to you anytime.</span>
                 </div>
             </li>
             <li>
-                <svg width="20" height="20" fill="#e91e63" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                 <div class="promise-content">
                     <span class="promise-title">Wide Range of Expert Techniques</span>
                     <span class="promise-sub">Swedish, Deep Tissue, Thai, Combination, Foot, Twin & more.</span>
                 </div>
             </li>
             <li>
-                <svg width="20" height="20" fill="#e91e63" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                 <div class="promise-content">
                     <span class="promise-title">Fast Relief from Pain & Tension</span>
                     <span class="promise-sub">Say goodbye to back/neck pain, jet lag, or daily stress.</span>
                 </div>
             </li>
             <li>
-                <svg width="20" height="20" fill="#e91e63" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                 <div class="promise-content">
                     <span class="promise-title">Private & Professional Service</span>
                     <span class="promise-sub">No crowded spas, no awkward waiting — total privacy in your room.</span>
                 </div>
             </li>
             <li>
-                <svg width="20" height="20" fill="#e91e63" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                 <div class="promise-content">
                     <span class="promise-title">Perfect for Solo or Shared Sessions</span>
                     <span class="promise-sub">Enjoy alone or book Twin Massage for double the relaxation.</span>
@@ -339,33 +368,32 @@
         </ul>
     </section>
 
-    <section class="section">
-        <h2>Service Gallery</h2>
+    <div class="gallery-wrapper">
+        <h2 class="gallery-title">Service Gallery</h2>
         <div class="service-slideshow">
             <div class="slide-wrap active">
-                <img src="swedish-massage.jpg">
+                <img src="swedish-massage.jpg" alt="Swedish Massage">
                 <div class="caption">Swedish Massage</div>
             </div>
             <div class="slide-wrap">
-                <img src="deep-tissue.jpg">
+                <img src="deep-tissue.jpg" alt="Deep Tissue">
                 <div class="caption">Deep Tissue</div>
             </div>
             <div class="slide-wrap">
-                <img src="foot-massage.jpg">
+                <img src="foot-massage.jpg" alt="Foot Massage">
                 <div class="caption">Foot Massage</div>
             </div>
             <div class="slide-wrap">
-                <img src="combination.jpg">
+                <img src="combination.jpg" alt="Combination Massage">
                 <div class="caption">Combination Massage</div>
             </div>
-            
             <div class="slide-dots">
                 <span class="active"></span><span></span><span></span><span></span>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="section">
+    <div class="testimonial-outer">
         <h2>Client Feedback</h2>
         <div class="testimonial-marquee">
             <div class="testimonial-track">
@@ -375,9 +403,11 @@
                 <div class="testimonial"><div class="stars">★★★★★</div><strong>James L.</strong><br>Perfect hotel service arrival.</div>
                 <div class="testimonial"><div class="stars">★★★★★</div><strong>Anna M.</strong><br>Famous Touch is the best! Very professional.</div>
                 <div class="testimonial"><div class="stars">★★★★★</div><strong>Mark T.</strong><br>Highly reliable home service in Makati.</div>
+                <div class="testimonial"><div class="stars">★★★★★</div><strong>Sophia R.</strong><br>Very clean setup and polite staff.</div>
+                <div class="testimonial"><div class="stars">★★★★★</div><strong>James L.</strong><br>Perfect hotel service arrival.</div>
             </div>
         </div>
-    </section>
+    </div>
 
     <footer class="main-footer">
         <div class="footer-line"></div>
