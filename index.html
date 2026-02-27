@@ -120,7 +120,6 @@
             font-weight: 800;
         }
         
-        /* Updated Gallery Title for visibility on background */
         .gallery-title {
             color: #fff;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
@@ -138,7 +137,7 @@
         .service-item { display: flex; align-items: center; gap: 8px; font-size: 15px; }
         .check { color: #000; font-weight: 900; font-size: 18px; }
 
-        /* SLIDESHOW (NO CARD) */
+        /* SLIDESHOW STYLES */
         .gallery-wrapper {
             margin-bottom: 30px;
             padding: 0;
@@ -167,6 +166,21 @@
             height: 300px;
             object-fit: cover;
         }
+
+        /* WATERMARK LOGO STYLE */
+        .slide-logo {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 50px; /* Small but visible */
+            height: auto;
+            z-index: 5;
+            border-radius: 6px;
+            border: 1px solid var(--primary);
+            background: rgba(0,0,0,0.4);
+            padding: 2px;
+        }
+
         .caption {
             position: absolute;
             bottom: 45px;
@@ -183,6 +197,7 @@
             border: 1px solid var(--primary);
             white-space: nowrap;
         }
+
         .slide-dots {
             position: absolute;
             bottom: 12px;
@@ -372,18 +387,22 @@
         <h2 class="gallery-title">Service Gallery</h2>
         <div class="service-slideshow">
             <div class="slide-wrap active">
+                <img src="famous-touch-logo.png" class="slide-logo" alt="Logo">
                 <img src="swedish-massage.jpg" alt="Swedish Massage">
                 <div class="caption">Swedish Massage</div>
             </div>
             <div class="slide-wrap">
+                <img src="famous-touch-logo.png" class="slide-logo" alt="Logo">
                 <img src="deep-tissue.jpg" alt="Deep Tissue">
                 <div class="caption">Deep Tissue</div>
             </div>
             <div class="slide-wrap">
+                <img src="famous-touch-logo.png" class="slide-logo" alt="Logo">
                 <img src="foot-massage.jpg" alt="Foot Massage">
                 <div class="caption">Foot Massage</div>
             </div>
             <div class="slide-wrap">
+                <img src="famous-touch-logo.png" class="slide-logo" alt="Logo">
                 <img src="combination.jpg" alt="Combination Massage">
                 <div class="caption">Combination Massage</div>
             </div>
