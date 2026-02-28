@@ -240,18 +240,18 @@
             object-fit: cover;
         }
 
+        /* UPDATED SLIDE LOGO: Bigger, No Border, No Background */
         .slide-logo {
             position: absolute;
             top: 15px;
             left: 15px;
-            width: 50px;
-            height: 50px;
+            width: 80px; /* Made it bigger */
+            height: 80px; /* Made it bigger */
             object-fit: contain;
             z-index: 5;
-            border-radius: 8px;
-            border: 1px solid var(--primary);
-            background: rgba(0,0,0,0.6);
-            padding: 4px;
+            background: transparent; /* Removed background */
+            border: none; /* Removed border */
+            padding: 0;
         }
 
         .caption {
@@ -397,7 +397,7 @@
             z-index: 10002;
         }
 
-        /* RESTORED FLOATING BUTTON STYLE */
+        /* FLOATING BUTTONS */
         .floating-btns { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
         .floating-btns a { width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow:0 6px 15px rgba(0,0,0,.4); transition: transform 0.3s; }
         .whatsapp { background: #25D366 }
@@ -471,27 +471,6 @@
                     <span class="promise-sub">Swedish, Deep Tissue, Thai, Combination, Foot, Twin & more.</span>
                 </div>
             </li>
-            <li>
-                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <div class="promise-content">
-                    <span class="promise-title">Fast Relief from Pain & Tension</span>
-                    <span class="promise-sub">Say goodbye to back/neck pain, jet lag, or daily stress.</span>
-                </div>
-            </li>
-            <li>
-                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <div class="promise-content">
-                    <span class="promise-title">Private & Professional Service</span>
-                    <span class="promise-sub">No crowded spas, no awkward waiting — total privacy in your room.</span>
-                </div>
-            </li>
-            <li>
-                <svg width="20" height="20" fill="var(--primary)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <div class="promise-content">
-                    <span class="promise-title">Perfect for Solo or Shared Sessions</span>
-                    <span class="promise-sub">Enjoy alone or book Twin Massage for double the relaxation.</span>
-                </div>
-            </li>
         </ul>
     </section>
 
@@ -533,7 +512,6 @@
                 <div class="testimonial"><div class="stars">★★★★★</div><strong>Sophia R.</strong><br>Very clean setup and polite staff.</div>
                 <div class="testimonial"><div class="stars">★★★★★</div><strong>James L.</strong><br>Perfect hotel service arrival.</div>
                 <div class="testimonial"><div class="stars">★★★★★</div><strong>Anna M.</strong><br>Famous Touch is the best! Very professional.</div>
-                <div class="testimonial"><div class="stars">★★★★★</div><strong>Mark T.</strong><br>Highly reliable home service in Makati.</div>
             </div>
         </div>
     </div>
