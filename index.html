@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T21K1ZMPND"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-T21K1ZMPND');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -509,25 +518,23 @@
             © 2026 FAMOUS TOUCH. ALL RIGHTS RESERVED.
         </div>
     </footer>
-
-</div>
-
-<div class="floating-btns">
-    <a href="https://wa.me/639466266795" class="whatsapp" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
-    <a href="viber://chat?number=%2B639552442390" class="viber"><img src="https://img.icons8.com/ios-filled/50/ffffff/viber.png" alt="Viber"></a>
 </div>
 
 <script>
-    const wraps = document.querySelectorAll('.slide-wrap');
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide-wrap');
     const dots = document.querySelectorAll('.slide-dots span');
-    let currentIndex = 0;
+
+    function showSlide(index) {
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+    }
 
     function nextSlide() {
-        wraps[currentIndex].classList.remove('active');
-        dots[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + 1) % wraps.length;
-        wraps[currentIndex].classList.add('active');
-        dots[currentIndex].classList.add('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
     }
 
     setInterval(nextSlide, 4000);
