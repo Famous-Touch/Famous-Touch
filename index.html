@@ -399,12 +399,12 @@
             z-index: 10002;
         }
 
-        /* FLOATING BUTTONS */
-        .floating-btns { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
+        /* FLOATING BUTTONS - FIXED VIBER SHOWING */
+        .floating-btns { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 99999; }
         .floating-btns a { width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow:0 6px 15px rgba(0,0,0,.4); transition: transform 0.3s; }
         .whatsapp { background: #25D366 }
-        .viber { background: #665CAC }
-        .floating-btns img { width: 35px }
+        .viber { background: #7360f2 } /* Added Viber Purple Background */
+        .floating-btns img { width: 35px; height: 35px; }
     </style>
 </head>
 
@@ -596,15 +596,14 @@
     // 2. Map Modal Logic
     function openMap() {
         document.getElementById("mapModal").style.display = "flex";
-        document.body.style.overflow = "hidden"; // Prevent background scroll
+        document.body.style.overflow = "hidden"; 
     }
 
     function closeMap() {
         document.getElementById("mapModal").style.display = "none";
-        document.body.style.overflow = "auto"; // Restore scroll
+        document.body.style.overflow = "auto"; 
     }
 
-    // 3. Close modal on 'Esc' key
     window.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') closeMap();
     });
