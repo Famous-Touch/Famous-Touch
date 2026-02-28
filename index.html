@@ -320,7 +320,6 @@
         .stars { color: #ff9900; font-size: 16px; margin-bottom: 5px; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* FOOTER & MAP LOGO */
         .main-footer {
             margin-top: 10px;
             padding: 20px 10px;
@@ -358,7 +357,6 @@
             text-transform: uppercase;
         }
 
-        /* MAP POPUP STYLES */
         .map-modal {
             display: none;
             position: fixed;
@@ -399,7 +397,7 @@
             z-index: 10002;
         }
 
-        /* FLOATING BUTTONS - COPIED FROM YOUR OLD CODE */
+        /* RESTORED FLOATING BUTTON STYLE */
         .floating-btns { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
         .floating-btns a { width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow:0 6px 15px rgba(0,0,0,.4); transition: transform 0.3s; }
         .whatsapp { background: #25D366 }
@@ -438,7 +436,7 @@
     </div>
 
     <section class="section">
-        <h2>Massage Services in Makati, Pasay & BGC</h2>
+        <h2>Available Services</h2>
         <div class="services-grid">
             <div class="service-item"><span class="check">✔</span> Swedish Massage</div>
             <div class="service-item"><span class="check">✔</span> Deep Tissue</div>
@@ -574,7 +572,6 @@
 </div>
 
 <script>
-    // 1. Slideshow Logic
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide-wrap');
     const dots = document.querySelectorAll('.slide-dots span');
@@ -589,7 +586,6 @@
     }
     if(slides.length) setInterval(() => showSlide(currentSlide + 1), 4000);
 
-    // 2. Map Modal Logic
     function openMap() {
         document.getElementById("mapModal").style.display = "flex";
         document.body.style.overflow = "hidden"; 
@@ -599,10 +595,6 @@
         document.getElementById("mapModal").style.display = "none";
         document.body.style.overflow = "auto"; 
     }
-
-    window.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') closeMap();
-    });
 </script>
 
 </body>
