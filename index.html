@@ -6,13 +6,11 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-T21K1ZMPND');
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <meta name="google-site-verification" content="xVj3uxcWfu1sfd176MxjiioG-440_qDsYQTsM_rgy7g" />
 
     <title>Famous Touch | 24/7 Home & Hotel Massage Makati, Pasay, BGC</title>
@@ -338,6 +336,7 @@
             display: inline-block;
             margin: 15px 0;
             text-decoration: none;
+            cursor: pointer;
             transition: transform 0.3s ease;
         }
         .map-logo-link:hover { transform: scale(1.1); }
@@ -357,6 +356,46 @@
             font-size: 11px;
             margin-top: 5px;
             text-transform: uppercase;
+        }
+
+        /* MAP POPUP STYLES */
+        .map-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal-content {
+            position: relative;
+            max-width: 100%;
+            max-height: 90vh;
+            border: 3px solid var(--primary);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 30px var(--primary);
+        }
+        .modal-content img {
+            width: 100%;
+            display: block;
+            object-fit: contain;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            text-shadow: 0 0 10px #000;
+            z-index: 10001;
         }
 
         .floating-btns { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
@@ -508,36 +547,60 @@
             Pasay • Makati • BGC • Malate • Pasig • Parañaque
         </p>
 
-        <a href="https://maps.google.com" target="_blank" class="map-logo-link">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Google_Maps_icon_%282020%29.svg" class="map-logo-img" alt="Google Maps">
-            <span class="map-label">Click to View Map</span>
-        </a>
-
-        <p style="margin-top: 15px;">Available 24 Hours / 7 Days a Week</p>
-        <div style="opacity: 0.5; font-size: 11px; margin-top: 15px; letter-spacing: 1px;">
-            © 2026 FAMOUS TOUCH. ALL RIGHTS RESERVED.
+        <div onclick="openMap()" class="map-logo-link">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Google_Maps_icon_%282020%29.svg" class="map-logo-img" alt="Google Maps Icon">
+            <span class="map-label">View Coverage Area</span>
         </div>
+
+        <p style="margin-top: 15px; opacity: 0.7; font-size: 11px;">
+            &copy; 2026 Famous Touch Massage. All Rights Reserved.
+        </p>
     </footer>
+
+</div>
+
+<div id="mapModal" class="map-modal" onclick="closeMap()">
+    <span class="close-btn">&times;</span>
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <img src="coverage-map.jpg" alt="Famous Touch Service Coverage Map">
+    </div>
+</div>
+
+<div class="floating-btns">
+    <a href="viber://chat?number=%2B639466266795" class="viber">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Viber_logo_2018.svg" alt="Viber">
+    </a>
+    <a href="https://wa.me/639466266795" class="whatsapp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
 </div>
 
 <script>
+    // Slideshow Logic
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide-wrap');
     const dots = document.querySelectorAll('.slide-dots span');
 
-    function showSlide(index) {
+    function showSlide(n) {
         slides.forEach(s => s.classList.remove('active'));
         dots.forEach(d => d.classList.remove('active'));
-        slides[index].classList.add('active');
-        dots[index].classList.add('active');
+        currentSlide = (n + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
     }
 
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
+    setInterval(() => showSlide(currentSlide + 1), 4000);
+
+    // Modal Logic
+    function openMap() {
+        document.getElementById("mapModal").style.display = "flex";
+        document.body.style.overflow = "hidden"; // Stop scrolling when open
     }
 
-    setInterval(nextSlide, 4000);
+    function closeMap() {
+        document.getElementById("mapModal").style.display = "none";
+        document.body.style.overflow = "auto"; // Re-enable scrolling
+    }
 </script>
 
 </body>
