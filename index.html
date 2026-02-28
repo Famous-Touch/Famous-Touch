@@ -374,30 +374,32 @@
         }
         .modal-content {
             position: relative;
-            max-width: 100%;
+            max-width: 95%;
             max-height: 90vh;
             border: 3px solid var(--primary);
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 0 30px var(--primary);
+            background: #000;
         }
         .modal-content img {
             width: 100%;
+            max-height: 85vh;
             display: block;
             object-fit: contain;
         }
         .close-btn {
             position: absolute;
-            top: 10px;
-            right: 15px;
-            color: #fff;
-            font-size: 40px;
+            top: -5px;
+            right: 10px;
+            color: var(--primary);
+            font-size: 45px;
             font-weight: bold;
             cursor: pointer;
-            text-shadow: 0 0 10px #000;
-            z-index: 10001;
+            z-index: 10002;
         }
 
+        /* FLOATING BUTTONS */
         .floating-btns { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
         .floating-btns a { width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow:0 6px 15px rgba(0,0,0,.4); transition: transform 0.3s; }
         .whatsapp { background: #25D366 }
@@ -548,8 +550,8 @@
         </p>
 
         <div onclick="openMap()" class="map-logo-link">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Google_Maps_icon_%282020%29.svg" class="map-logo-img" alt="Google Maps Icon">
-            <span class="map-label">View Coverage Area</span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Google_Maps_icon_%282020%29.svg" class="map-logo-img" alt="Map Icon">
+            <span class="map-label">View Coverage Map</span>
         </div>
 
         <p style="margin-top: 15px; opacity: 0.7; font-size: 11px;">
@@ -560,14 +562,14 @@
 </div>
 
 <div id="mapModal" class="map-modal" onclick="closeMap()">
-    <span class="close-btn">&times;</span>
     <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closeMap()">&times;</span>
         <img src="coverage-map.jpg" alt="Famous Touch Service Coverage Map">
     </div>
 </div>
 
 <div class="floating-btns">
-    <a href="viber://chat?number=%2B639466266795" class="viber">
+    <a href="viber://add?number=639466266795" class="viber">
         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Viber_logo_2018.svg" alt="Viber">
     </a>
     <a href="https://wa.me/639466266795" class="whatsapp">
@@ -576,31 +578,36 @@
 </div>
 
 <script>
-    // Slideshow Logic
+    // 1. Slideshow Logic
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide-wrap');
     const dots = document.querySelectorAll('.slide-dots span');
 
     function showSlide(n) {
+        if(!slides.length) return;
         slides.forEach(s => s.classList.remove('active'));
         dots.forEach(d => d.classList.remove('active'));
         currentSlide = (n + slides.length) % slides.length;
         slides[currentSlide].classList.add('active');
         dots[currentSlide].classList.add('active');
     }
+    if(slides.length) setInterval(() => showSlide(currentSlide + 1), 4000);
 
-    setInterval(() => showSlide(currentSlide + 1), 4000);
-
-    // Modal Logic
+    // 2. Map Modal Logic
     function openMap() {
         document.getElementById("mapModal").style.display = "flex";
-        document.body.style.overflow = "hidden"; // Stop scrolling when open
+        document.body.style.overflow = "hidden"; // Prevent background scroll
     }
 
     function closeMap() {
         document.getElementById("mapModal").style.display = "none";
-        document.body.style.overflow = "auto"; // Re-enable scrolling
+        document.body.style.overflow = "auto"; // Restore scroll
     }
+
+    // 3. Close modal on 'Esc' key
+    window.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') closeMap();
+    });
 </script>
 
 </body>
