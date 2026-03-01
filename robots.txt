@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
 
+# Specifically allow Google's image and favicon crawlers
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Favicon
+Allow: /
+
 Sitemap: https://www.famous-touch.com/sitemap.xml
