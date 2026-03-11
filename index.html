@@ -18,10 +18,17 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+
+      // Configs
       gtag('config', 'G-T21K1ZMPND'); 
       gtag('config', 'AW-17916989656'); 
 
-      // WhatsApp Chat Conversion Function
+      // This specific event helps Tag Assistant detect the "Page View" conversion action
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17916989656/svjkCMCEpYcENihvt9C'
+      });
+
+      // WhatsApp/Call Chat Conversion Function
       function gtag_report_chat_conversion(url) {
         var callback = function () {
           if (typeof(url) != 'undefined') {
@@ -35,6 +42,7 @@
         return false;
       }
     </script>
+
 
     <script type="application/ld+json">
     {
