@@ -23,16 +23,18 @@
       gtag('config', 'G-T21K1ZMPND'); 
       gtag('config', 'AW-17916989656'); 
 
-      // WhatsApp/Call Chat Conversion Function
-      // Updated with the specific Label detected in Tag Assistant
-      function gtag_report_chat_conversion(url) {
+      /**
+       * Unified Conversion Function
+       * Reports all contact methods to "Website Call Button" goal
+       */
+      function gtag_report_conversion(url) {
         var callback = function () {
           if (typeof(url) != 'undefined') {
             window.location = url;
           }
         };
         gtag('event', 'conversion', {
-            'send_to': 'AW-17916989656/AtonCOGNpIYcENlhvt9C',
+            'send_to': 'AW-17916989656/qzqlCIGL_IYcENihvt9C',
             'event_callback': callback
         });
         return false;
@@ -150,8 +152,8 @@
     <div class="call-now-section">
         <div class="inspiring-text">Experience the "Famous Touch" – Pure Relaxation at Your Doorstep.</div>
         <div class="call-buttons">
-            <a onclick="return gtag_report_chat_conversion('tel:09466266795');" href="tel:09466266795" class="call-btn smart"><span>CALL SMART</span><span>09466266795</span></a>
-            <a onclick="return gtag_report_chat_conversion('tel:09552442390');" href="tel:09552442390" class="call-btn globe"><span>CALL GLOBE</span><span>09552442390</span></a>
+            <a onclick="return gtag_report_conversion('tel:09466266795');" href="tel:09466266795" class="call-btn smart"><span>CALL SMART</span><span>09466266795</span></a>
+            <a onclick="return gtag_report_conversion('tel:09552442390');" href="tel:09552442390" class="call-btn globe"><span>CALL GLOBE</span><span>09552442390</span></a>
         </div>
     </div>
 
@@ -284,12 +286,12 @@
         <p><strong>FAMOUS TOUCH MASSAGE SERVICES</strong></p>
         <p style="color: var(--primary); font-weight: bold; margin: 10px 0 5px;">SERVICE AREA COVERAGE:</p>
         <div style="margin-top: 15px; font-size: 11px; opacity: 0.9; line-height: 2;">
-            <a onclick="return gtag_report_chat_conversion('https://wa.me/639466266795?text=Booking%20in%20Makati');" href="https://wa.me/639466266795?text=Booking%20in%20Makati" style="color: #fff; text-decoration: none;">Massage Makati</a> | 
-            <a onclick="return gtag_report_chat_conversion('https://wa.me/639466266795?text=Booking%20in%20BGC');" href="https://wa.me/639466266795?text=Booking%20in%20BGC" style="color: #fff; text-decoration: none;">Massage BGC</a> | 
-            <a onclick="return gtag_report_chat_conversion('https://wa.me/639466266795?text=Booking%20in%20Pasay');" href="https://wa.me/639466266795?text=Booking%20in%20Pasay" style="color: #fff; text-decoration: none;">Massage Pasay</a> | 
-            <a onclick="return gtag_report_chat_conversion('https://wa.me/639466266795?text=Booking%20in%20Malate');" href="https://wa.me/639466266795?text=Booking%20in%20Malate" style="color: #fff; text-decoration: none;">Massage Malate</a> | 
-            <a onclick="return gtag_report_chat_conversion('https://wa.me/639466266795?text=Booking%20in%20Pasig');" href="https://wa.me/639466266795?text=Booking%20in%20Pasig" style="color: #fff; text-decoration: none;">Massage Pasig</a> | 
-            <a onclick="return gtag_report_chat_conversion('https://wa.me/639466266795?text=Booking%20in%20Parañaque');" href="https://wa.me/639466266795?text=Booking%20in%20Parañaque" style="color: #fff; text-decoration: none;">Massage Parañaque</a>
+            <a onclick="return gtag_report_conversion('https://wa.me/639466266795?text=Booking%20in%20Makati');" href="https://wa.me/639466266795?text=Booking%20in%20Makati" style="color: #fff; text-decoration: none;">Massage Makati</a> | 
+            <a onclick="return gtag_report_conversion('https://wa.me/639466266795?text=Booking%20in%20BGC');" href="https://wa.me/639466266795?text=Booking%20in%20BGC" style="color: #fff; text-decoration: none;">Massage BGC</a> | 
+            <a onclick="return gtag_report_conversion('https://wa.me/639466266795?text=Booking%20in%20Pasay');" href="https://wa.me/639466266795?text=Booking%20in%20Pasay" style="color: #fff; text-decoration: none;">Massage Pasay</a> | 
+            <a onclick="return gtag_report_conversion('https://wa.me/639466266795?text=Booking%20in%20Malate');" href="https://wa.me/639466266795?text=Booking%20in%20Malate" style="color: #fff; text-decoration: none;">Massage Malate</a> | 
+            <a onclick="return gtag_report_conversion('https://wa.me/639466266795?text=Booking%20in%20Pasig');" href="https://wa.me/639466266795?text=Booking%20in%20Pasig" style="color: #fff; text-decoration: none;">Massage Pasig</a> | 
+            <a onclick="return gtag_report_conversion('https://wa.me/639466266795?text=Booking%20in%20Parañaque');" href="https://wa.me/639466266795?text=Booking%20in%20Parañaque" style="color: #fff; text-decoration: none;">Massage Parañaque</a>
         </div>
         <div onclick="openMap()" class="map-logo-link">
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Google_Maps_icon_%282020%29.svg" class="map-logo-img">
@@ -310,10 +312,10 @@
 </div>
 
 <div class="floating-btns">
-    <a onclick="return gtag_report_chat_conversion('https://wa.me/639466266795');" href="https://wa.me/639466266795" class="whatsapp" target="_blank">
+    <a onclick="return gtag_report_conversion('https://wa.me/639466266795');" href="https://wa.me/639466266795" class="whatsapp" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
     </a>
-    <a onclick="return gtag_report_chat_conversion('viber://chat?number=%2B639552442390');" href="viber://chat?number=%2B639552442390" class="viber" target="_blank">
+    <a onclick="return gtag_report_conversion('viber://chat?number=%2B639552442390');" href="viber://chat?number=%2B639552442390" class="viber" target="_blank">
         <img src="https://img.icons8.com/ios-filled/50/ffffff/viber.png">
     </a>
 </div>
