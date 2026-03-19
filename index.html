@@ -24,10 +24,25 @@
       gtag('config', 'AW-17916989656'); 
 
       /**
-       * Unified Click Conversion Function
-       * Targets the "Website Call Button" (qzqlCIGL_IYcENihvt9C)
+       * Track WhatsApp Conversions
        */
-      function gtag_report_conversion(url) {
+      function gtag_report_whatsapp(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17916989656/WXIKCKLgz4QcENihvt9C',
+            'event_callback': callback
+        });
+        return false;
+      }
+
+      /**
+       * Track Call Conversions
+       */
+      function gtag_report_call(url) {
         var callback = function () {
           if (typeof(url) != 'undefined') {
             window.location = url;
@@ -152,8 +167,8 @@
     <div class="call-now-section">
         <div class="inspiring-text">Experience the "Famous Touch" – Pure Relaxation at Your Doorstep.</div>
         <div class="call-buttons">
-            <a onclick="return gtag_report_conversion('tel:09466266795');" href="tel:09466266795" class="call-btn smart"><span>CALL SMART</span><span>09466266795</span></a>
-            <a onclick="return gtag_report_conversion('tel:09552442390');" href="tel:09552442390" class="call-btn globe"><span>CALL GLOBE</span><span>09552442390</span></a>
+            <a onclick="return gtag_report_call('tel:09466266795');" href="tel:09466266795" class="call-btn smart"><span>CALL SMART</span><span>09466266795</span></a>
+            <a onclick="return gtag_report_call('tel:09552442390');" href="tel:09552442390" class="call-btn globe"><span>CALL GLOBE</span><span>09552442390</span></a>
         </div>
     </div>
 
@@ -171,7 +186,6 @@
 
     <section class="section" style="background: rgba(0,0,0,0.6);">
         <h2 style="color: var(--primary); border-color: var(--primary);">Areas Ready for Service</h2>
-        <p style="color: #fff; font-size: 13px; margin-bottom: 12px; opacity: 0.9;">Therapists are currently active in these locations:</p>
         <div class="standby-grid">
             <div class="city-card">
                 <h3>Makati <span class="status-tag">ACTIVE</span></h3>
@@ -221,30 +235,6 @@
                     <span class="promise-sub">Whether it's late-night stress relief or an early morning recovery session, our teams are on standby 24 hours a day.</span>
                 </div>
             </li>
-            <li>
-                <div class="promise-content">
-                    <span class="promise-title">Wide Range of Expert Techniques</span>
-                    <span class="promise-sub">From Swedish and Deep Tissue to specialized Thai and Twin massages, we tailor every session to your needs.</span>
-                </div>
-            </li>
-            <li>
-                <div class="promise-content">
-                    <span class="promise-title">Fast Relief from Pain & Tension</span>
-                    <span class="promise-sub">Our specialized techniques are designed to eliminate back and neck pain, jet lag, and daily accumulation of stress.</span>
-                </div>
-            </li>
-            <li>
-                <div class="promise-content">
-                    <span class="promise-title">Private & Professional Service</span>
-                    <span class="promise-sub">Avoid crowded spas and awkward waiting rooms. Experience a high-end spa atmosphere in the total privacy of your room.</span>
-                </div>
-            </li>
-            <li>
-                <div class="promise-content">
-                    <span class="promise-title">Solo or Shared Sessions</span>
-                    <span class="promise-sub">Enjoy a relaxing solo session or book a Twin Massage (two therapists) for the ultimate luxury relaxation experience.</span>
-                </div>
-            </li>
         </ul>
     </section>
 
@@ -286,19 +276,16 @@
         <p><strong>FAMOUS TOUCH MASSAGE SERVICES</strong></p>
         <p style="color: var(--primary); font-weight: bold; margin: 10px 0 5px;">SERVICE AREA COVERAGE:</p>
         <div style="margin-top: 15px; font-size: 11px; opacity: 0.9; line-height: 2;">
-            <a onclick="return gtag_report_conversion('https://wa.me/639466266795?text=Booking%20in%20Makati');" href="https://wa.me/639466266795?text=Booking%20in%20Makati" style="color: #fff; text-decoration: none;">Massage Makati</a> | 
-            <a onclick="return gtag_report_conversion('https://wa.me/639466266795?text=Booking%20in%20BGC');" href="https://wa.me/639466266795?text=Booking%20in%20BGC" style="color: #fff; text-decoration: none;">Massage BGC</a> | 
-            <a onclick="return gtag_report_conversion('https://wa.me/639466266795?text=Booking%20in%20Pasay');" href="https://wa.me/639466266795?text=Booking%20in%20Pasay" style="color: #fff; text-decoration: none;">Massage Pasay</a> | 
-            <a onclick="return gtag_report_conversion('https://wa.me/639466266795?text=Booking%20in%20Malate');" href="https://wa.me/639466266795?text=Booking%20in%20Malate" style="color: #fff; text-decoration: none;">Massage Malate</a> | 
-            <a onclick="return gtag_report_conversion('https://wa.me/639466266795?text=Booking%20in%20Pasig');" href="https://wa.me/639466266795?text=Booking%20in%20Pasig" style="color: #fff; text-decoration: none;">Massage Pasig</a> | 
-            <a onclick="return gtag_report_conversion('https://wa.me/639466266795?text=Booking%20in%20Parañaque');" href="https://wa.me/639466266795?text=Booking%20in%20Parañaque" style="color: #fff; text-decoration: none;">Massage Parañaque</a>
+            <a onclick="return gtag_report_whatsapp('https://wa.me/639466266795?text=Booking%20in%20Makati');" href="https://wa.me/639466266795?text=Booking%20in%20Makati" style="color: #fff; text-decoration: none;">Massage Makati</a> | 
+            <a onclick="return gtag_report_whatsapp('https://wa.me/639466266795?text=Booking%20in%20BGC');" href="https://wa.me/639466266795?text=Booking%20in%20BGC" style="color: #fff; text-decoration: none;">Massage BGC</a> | 
+            <a onclick="return gtag_report_whatsapp('https://wa.me/639466266795?text=Booking%20in%20Pasay');" href="https://wa.me/639466266795?text=Booking%20in%20Pasay" style="color: #fff; text-decoration: none;">Massage Pasay</a> | 
+            <a onclick="return gtag_report_whatsapp('https://wa.me/639466266795?text=Booking%20in%20Malate');" href="https://wa.me/639466266795?text=Booking%20in%20Malate" style="color: #fff; text-decoration: none;">Massage Malate</a> | 
+            <a onclick="return gtag_report_whatsapp('https://wa.me/639466266795?text=Booking%20in%20Pasig');" href="https://wa.me/639466266795?text=Booking%20in%20Pasig" style="color: #fff; text-decoration: none;">Massage Pasig</a> | 
+            <a onclick="return gtag_report_whatsapp('https://wa.me/639466266795?text=Booking%20in%20Parañaque');" href="https://wa.me/639466266795?text=Booking%20in%20Parañaque" style="color: #fff; text-decoration: none;">Massage Parañaque</a>
         </div>
         <div onclick="openMap()" class="map-logo-link">
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Google_Maps_icon_%282020%29.svg" class="map-logo-img">
             <span class="map-label">View Coverage Map</span>
-        </div>
-        <div class="trust-links">
-            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
         </div>
         <p style="margin-top: 15px; opacity: 0.7; font-size: 11px;">&copy; 2026 Famous Touch Massage. All Rights Reserved.</p>
     </footer>
@@ -312,10 +299,10 @@
 </div>
 
 <div class="floating-btns">
-    <a onclick="return gtag_report_conversion('https://wa.me/639466266795');" href="https://wa.me/639466266795" class="whatsapp" target="_blank">
+    <a onclick="return gtag_report_whatsapp('https://wa.me/639466266795');" href="https://wa.me/639466266795" class="whatsapp" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
     </a>
-    <a onclick="return gtag_report_conversion('viber://chat?number=%2B639552442390');" href="viber://chat?number=%2B639552442390" class="viber" target="_blank">
+    <a onclick="return gtag_report_call('viber://chat?number=%2B639552442390');" href="viber://chat?number=%2B639552442390" class="viber" target="_blank">
         <img src="https://img.icons8.com/ios-filled/50/ffffff/viber.png">
     </a>
 </div>
