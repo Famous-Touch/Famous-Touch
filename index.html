@@ -9,33 +9,40 @@
     <link rel="apple-touch-icon" sizes="180x180" href="https://www.famous-touch.com/apple-touch-icon.png?v=3">
     <link rel="shortcut icon" href="https://www.famous-touch.com/favicon.ico?v=3">
     <link rel="canonical" href="https://www.famous-touch.com/" />
-    <title>Famous Touch | #1 Home & Hotel Massage Service Makati, BGC, Pasay, Pasig, Parañaque</title>
-    <meta name="description" content="Premium 24/7 home and hotel massage in Makati, BGC, Pasay, Malate, Pasig, and Parañaque. Professional therapists on standby for 30-45 min arrival. Book the famous touch.">
-    <meta name="keywords" content="massage in service makati, massage service in pasay, home  massage service, massage service in bgc, 24/7 massage service, massage service in parañaque, massage service in pasig, on-call massage service, massage service in home">
+    <title>Famous Touch | Your 24/7 Mobile Massage Service in Makati, BGC, Pasay, Pasig, Parañaque.</title>
+    <meta name="description" content="Premium 24/7 home and hotel massage service in Makati, BGC, Pasay, Malate, Pasig, and Parañaque. Professional therapists on standby for 30-45 min arrival. Book the famous touch now.">
+    <meta name="keywords" content="massage service in makati, massage service in pasay, home  massage service, massage service in bgc, 24/7 massage service, massage service in parañaque, massage service in pasig, on-call massage service, massage service in home">
     
+    <!-- Google Tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-T21K1ZMPND"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      // Global Configs
+      // Google Analytics Config
       gtag('config', 'G-T21K1ZMPND'); 
       
-      // Updated Google Ads Config with Conversion Linker & Enhanced Conversions
+      // Google Ads Config with Enhanced Conversions enabled
       gtag('config', 'AW-17916989656', {
         'allow_enhanced_conversions': true
       }); 
 
       /**
-       * Track WhatsApp Conversions (Label: WXIKCKLgz4QcENihvt9C)
+       * Track WhatsApp Conversions with Manual User Data for Enhanced Conversions
        */
       function gtag_report_whatsapp(url) {
+        // Explicitly providing the phone number satisfies the "In-page code" requirement
+        gtag('set', 'user_data', {
+          "phone_number": "+639466266795"
+        });
+
         var callback = function () {
           if (typeof(url) != 'undefined') {
             window.location = url;
           }
         };
+        
         gtag('event', 'conversion', {
             'send_to': 'AW-17916989656/WXIKCKLgz4QcENihvt9C',
             'event_callback': callback
@@ -44,9 +51,13 @@
       }
 
       /**
-       * Track Call Conversions (Label: qzqlCIGL_IYcENihvt9C)
+       * Track Call Conversions with Manual User Data for Enhanced Conversions
        */
       function gtag_report_call(url) {
+        gtag('set', 'user_data', {
+          "phone_number": "+639466266795"
+        });
+
         var callback = function () {
           if (typeof(url) != 'undefined') {
             window.location = url;
