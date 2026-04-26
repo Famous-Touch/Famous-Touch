@@ -19,17 +19,15 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-T21K1ZMPND'); 
-      gtag('config', 'AW-17916989656', { 'allow_enhanced_conversions': true }); 
+      gtag('config', 'AW-17916989656'); 
 
       function gtag_report_whatsapp(url) {
-        gtag('set', 'user_data', { "phone_number": "+639638542858" });
         var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } };
         gtag('event', 'conversion', { 'send_to': 'AW-17916989656/WXIKCKLgz4QcENihvt9C', 'event_callback': callback });
         return false;
       }
 
       function gtag_report_call(url) {
-        gtag('set', 'user_data', { "phone_number": "+639638542858" });
         var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } };
         gtag('event', 'conversion', { 'send_to': 'AW-17916989656/qzqlCIGL_IYcENihvt9C', 'event_callback': callback });
         return false;
